@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://CameraController.gd" type="Script" id=4]
+[ext_resource path="res://Coin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://AudioPlayer.gd" type="Script" id=7]
 
 [node name="MainScene" type="Node2D"]
 
@@ -141,4 +144,14 @@ moveDistance = 1088
 position = Vector2( 512, 304 )
 current = true
 script = ExtResource( 4 )
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="Camera2D"]
+script = ExtResource( 7 )
+
+[node name="Coin" parent="." instance=ExtResource( 5 )]
+position = Vector2( 673, 191 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource( 6 )]
 [connection signal="body_entered" from="Enemy" to="Enemy" method="_on_Enemy_body_entered"]

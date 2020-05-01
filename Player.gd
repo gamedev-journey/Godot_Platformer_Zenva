@@ -6,6 +6,8 @@ var jumpForce : int = 600
 var gravity : int = 800
 var velocity : Vector2 = Vector2()
 onready var sprite : Sprite = get_node("Sprite")
+onready var ui : Node = get_node("/root/MainScene/CanvasLayer/UI")
+onready var audioPlayer : Node = get_node("/root/MainScene/Camera2D/AudioPlayer")
  
 func _physics_process(delta):
 	velocity.x = 0
@@ -35,3 +37,8 @@ func _physics_process(delta):
 func die():
 # warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
+	
+func collect_coin(value):
+	score += value
+	ui.set_score_text(score)
+	audioPlayer.play_coin_sfx()
