@@ -148,10 +148,27 @@ script = ExtResource( 4 )
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="Camera2D"]
 script = ExtResource( 7 )
 
-[node name="Coin" parent="." instance=ExtResource( 5 )]
-position = Vector2( 673, 191 )
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 6 )]
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="Coin1" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 673, 191 )
+
+[node name="Coin2" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 347.052, 333.158 )
+
+[node name="Coin3" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 895.011, 384.852 )
+
+[node name="Coin4" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 185.508, 527.011 )
+
+[node name="Coin5" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 516.351, 523.134 )
+
+[node name="Coin6" parent="Coins" instance=ExtResource( 5 )]
+position = Vector2( 1020.37, 521.842 )
 [connection signal="body_entered" from="Enemy" to="Enemy" method="_on_Enemy_body_entered"]
